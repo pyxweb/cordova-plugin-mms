@@ -1,5 +1,5 @@
-/*
-cordova.define("org.apache.cordova.plugin.mms.mms", function(require, exports, module) {
+
+cordova.define("org.apache.cordova.plugin.mms", function(require, exports, module) {
 
 
     var mms = {
@@ -29,4 +29,3 @@ cordova.define("org.apache.cordova.plugin.mms.mms", function(require, exports, m
 module.exports = mms;
 
 });
-*/

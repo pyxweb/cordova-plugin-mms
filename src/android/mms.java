@@ -1,4 +1,4 @@
-package org.apache.cordova.plugin.mms;
+package org.apache.cordova.plugin;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -27,15 +27,15 @@ import org.json.JSONException;
 
 public class mms extends CordovaPlugin {
 
-    public final String ACTION_SEND_SMS = "send";
-    private static final String INTENT_FILTER_SMS_SENT = "SMS_SENT";
+    public final String ACTION_SEND_MMS = "send";
+    private static final String INTENT_FILTER_MMS_SENT = "MMS_SENT";
 
     BroadcastReceiver receiver;
 
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
 
-        if (action.equals(ACTION_SEND_SMS)) {
+        if (action.equals(ACTION_SEND_MMS)) {
             try {
                 String phoneNumber = args.getJSONArray(0).join(";").replace("\"", "");
                 String message = args.getString(1);
@@ -84,7 +84,7 @@ public class mms extends CordovaPlugin {
                             }
                         };
                         final IntentFilter intentFilter = new IntentFilter();
-                        intentFilter.addAction(INTENT_FILTER_SMS_SENT);
+                        intentFilter.addAction(INTENT_FILTER_MMS_SENT);
                         cordova.getActivity().registerReceiver(this.receiver, intentFilter);
                     }
                     send(phoneNumber, message);
@@ -158,7 +158,7 @@ public class mms extends CordovaPlugin {
 
     private void send(String phoneNumber, String message) {
         SmsManager manager = SmsManager.getDefault();
-        PendingIntent sentIntent = PendingIntent.getBroadcast(this.cordova.getActivity(), 0, new Intent(INTENT_FILTER_SMS_SENT), 0);
+        PendingIntent sentIntent = PendingIntent.getBroadcast(this.cordova.getActivity(), 0, new Intent(INTENT_FILTER_MMS_SENT), 0);
 
         // Use SendMultipartTextMessage if the message requires it
         int parts_size = manager.divideMessage(message).size();
