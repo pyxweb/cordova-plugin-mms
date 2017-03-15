@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
-           id="org.apache.cordova.plugin.sms"
-      version="0.1.0">
-    <name>Sms</name>
-    <description>Cordova SMS Send Plugin</description>
+        id="org.apache.cordova.plugin.mms"
+        version="1.0.0">
+    <name>mms</name>
+    <description>Cordova MMS Send Plugin</description>
     <license>MIT</license>
-    <keywords>cordova,phonegap,sms</keywords>
+    <keywords>cordova,phonegap,sms,mms</keywords>
 
     <engines>
-      <engine name="cordova" version=">=3.0.0" />
+        <engine name="cordova" version=">=3.0.0" />
     </engines>    
 
-    <js-module src="www/sms.js" name="Sms">
-        <clobbers target="window.sms" />
+    <js-module src="www/mms.js" name="mms">
+        <clobbers target="window.mms" />
     </js-module>
 
     <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="Sms">
-                <param name="android-package" value="org.apache.cordova.plugin.sms.Sms"/>
+            <feature name="mms">
+                <param name="android-package" value="org.apache.cordova.plugin.mms.mms"/>
             </feature>
         </config-file>
 
@@ -29,15 +29,15 @@
             <uses-feature android:name="android.hardware.telephony" android:required="false" />
         </config-file>
 
-        <source-file src="src/android/Sms.java" target-dir="src/org/apache/cordova/plugin/sms" />
+        <source-file src="src/android/mms.java" target-dir="src/org/apache/cordova/plugin/mms" />
     </platform>
 
     <platform name="wp8">
-        <source-file src="src/wp8/Sms.cs" />
+        <source-file src="src/wp8/mms.cs" />
 
         <config-file target="config.xml" parent="/*">
-            <feature name="Sms">
-                <param name="wp-package" value="Sms" />
+            <feature name="mms">
+                <param name="wp-package" value="mms" />
             </feature>
         </config-file>
     </platform>
@@ -45,12 +45,12 @@
     <!-- ios -->
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
-            <feature name="Sms">
-                <param name="ios-package" value="Sms" />
+            <feature name="mms">
+                <param name="ios-package" value="mms" />
             </feature>
         </config-file>
-        <header-file src="src/ios/Sms.h" />
-        <source-file src="src/ios/Sms.m" />
+        <header-file src="src/ios/mms.h" />
+        <source-file src="src/ios/mms.m" />
         <framework src="MessageUI.framework" weak="true" />
     </platform>
 </plugin>
