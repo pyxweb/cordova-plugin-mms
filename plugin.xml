@@ -32,25 +32,4 @@
         <source-file src="src/android/mms.java" target-dir="src/org/apache/cordova/plugin/mms" />
     </platform>
 
-    <platform name="wp8">
-        <source-file src="src/wp8/mms.cs" />
-
-        <config-file target="config.xml" parent="/*">
-            <feature name="mms">
-                <param name="wp-package" value="mms" />
-            </feature>
-        </config-file>
-    </platform>
-
-    <!-- ios -->
-    <platform name="ios">
-        <config-file target="config.xml" parent="/*">
-            <feature name="mms">
-                <param name="ios-package" value="mms" />
-            </feature>
-        </config-file>
-        <header-file src="src/ios/mms.h" />
-        <source-file src="src/ios/mms.m" />
-        <framework src="MessageUI.framework" weak="true" />
-    </platform>
 </plugin>
